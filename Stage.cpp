@@ -2,12 +2,12 @@
 
 namespace
 {
-	const int IMAGE_SIZE = { 32 }; // 画像のサイズ
-	const int MAP_WIDTH = { 32 };
-	const int MAP_HEIGHT = { 22 };
-	const int MAP_CHIP_WIDTH = { 16 };
-	const int MAP_CHIP_HEIGHT = { 12 };
-	const int myMAP[MAP_HEIGHT][MAP_WIDTH]
+	//const int IMAGE_SIZE = { 32 }; // 画像のサイズ
+	//const int MAP_WIDTH = { 32 };
+	//const int MAP_HEIGHT = { 22 };
+	//const int MAP_CHIP_WIDTH = { 16 };
+	//const int MAP_CHIP_HEIGHT = { 12 };
+	//const int myMAP[MAP_HEIGHT][MAP_WIDTH]
 	/*{
 		{0,1,2,3,4,5,6,7,8,9},
 		{0,0,0,0,0,0,0,0,0,0},
@@ -20,7 +20,7 @@ namespace
 		{0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0}
 	};*/
-	{
+	/*{
 		{102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102 },
 		{102,0,0,0,0,0,0,152,0,0,0,0,0,0,83,83,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,102},
 		{102,0,152,0,0,152,152,152,0,0,0,0,0,0,83,83,0,0,0,0,0,0,0,11,11,26,27,26,27,0,0,102},
@@ -42,9 +42,9 @@ namespace
 		{102,0,134,135,134,135,134,102,0,0,0,0,0,0,83,83,0,0,0,156,156,156,156,61,61,156,156,156,156,0,0,102},
 		{102,0,0,102,0,0,0,102,0,0,0,0,0,0,83,83,0,0,0,156,156,156,156,156,156,156,156,156,156,0,0,102},
 		{102,0,0,0,0,0,0,0,0,0,0,0,0,0,83,83,0,0,0,0,0,0,0,0,156,156,156,156,156,0,0,102},
-		{102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102},
+		{102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102},*/
 
-	};
+	//};
 }
 
 
@@ -53,27 +53,30 @@ Stage::Stage()
 {
 	//bgHandle = new int[MAP_WIDTH * MAP_HEIGHT];
 	//bgHandle = LoadGraph("./bg.png");
-	bgHandle_ = std::vector<int>(MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT, -1);
-	LoadDivGraph("./bg.png", MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT, MAP_CHIP_WIDTH, MAP_CHIP_HEIGHT, IMAGE_SIZE, IMAGE_SIZE, bgHandle_.data());
+	//bgHandle_ = std::vector<int>(MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT, -1);
+	//LoadDivGraph("./bg.png", MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT, MAP_CHIP_WIDTH, MAP_CHIP_HEIGHT, IMAGE_SIZE, IMAGE_SIZE, bgHandle_.data());
 	mapChip_ = new MapChip();
+	mapEdit_ = new MapEdit();
+	
 }
 
 Stage::~Stage()
 {
-	for (int i = 0; i < MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT; i++)
+	/*for (int i = 0; i < MAP_CHIP_WIDTH * MAP_CHIP_HEIGHT; i++)
 	{
 		if (bgHandle_[i] != -1)
 		{
 			DeleteGraph(bgHandle_[i]);
 			bgHandle_[i] = -1;
 		}
-	}
+	}*/
 	//delete[] bgHandle;
 	/*if (bgHandle != -1)
 	{
 		DeleteGraph(bgHandle);
 		bgHandle = -1;
 	}*/
+	delete mapChip_;
 }
 
 void Stage::Update()
@@ -83,18 +86,18 @@ void Stage::Update()
 void Stage::Draw()
 {
 	
-		for (int j = 0; j < MAP_HEIGHT; j++)
-		{
-			for (int i = 0; i < MAP_WIDTH; i++)
-			{
-				/*int col = myMAP[j][i] % MAP_CHIP_WIDTH;
-				int row = myMAP[j][i] / MAP_CHIP_WIDTH;*/
-				if (bgHandle_[myMAP[j][i]] != -1)
-				{
-					DrawGraph(i * IMAGE_SIZE, j * IMAGE_SIZE, bgHandle_[myMAP[j][i]], TRUE);
-				}
-			}
-		}
+		//for (int j = 0; j < MAP_HEIGHT; j++)
+		//{
+		//	for (int i = 0; i < MAP_WIDTH; i++)
+		//	{
+		//		/*int col = myMAP[j][i] % MAP_CHIP_WIDTH;
+		//		int row = myMAP[j][i] / MAP_CHIP_WIDTH;*/
+		//		if (bgHandle_[myMAP[j][i]] != -1)
+		//		{
+		//			DrawGraph(i * IMAGE_SIZE, j * IMAGE_SIZE, bgHandle_[myMAP[j][i]], TRUE);
+		//		}
+		//	}
+		//}
 
 
 		//DrawGraph(0, 0, bgHandle, true);
