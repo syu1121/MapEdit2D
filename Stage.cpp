@@ -82,7 +82,7 @@ Stage::~Stage()
 
 void Stage::Update()
 {
-	if (Input::IsButtonDown(MOUSE_INPUT_LEFT))
+	/*if (Input::IsButtonDown(MOUSE_INPUT_LEFT))
 	{
 		DxLib::printfDx("左押された！！:");
 	}
@@ -105,17 +105,17 @@ void Stage::Update()
 	if (Input::IsButtonUp(MOUSE_INPUT_RIGHT))
 	{
 		DxLib::printfDx("右離された！！:");
-	}
+	}*/
 
 	int mx = -1, my = -1;
-	if (GetMousePoint(&mx, &my) == 0)
+	/*if (GetMousePoint(&mx, &my) == 0)
 	{
 		DxLib::printfDx("マウスの座標(%d, %d)\n", mx, my);
 	}
 	else
 	{
 		DxLib::printfDx("マウスの座標取得失敗！！\n");
-	}
+	}*/
 }
 
 void Stage::Draw()
