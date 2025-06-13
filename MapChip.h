@@ -1,18 +1,7 @@
 #pragma once
 #include "Library/GameObject.h"
 #include <vector>
-
-struct Point
-{
-    int x;
-    int y;
-};
-
-struct Rect
-{
-    int x, y;
-    int w, h;
-};
+#include "globals.h"
 
 class MapChip :
     public GameObject
@@ -31,5 +20,7 @@ public:
     void Update() override;
     void Draw() override;
     int GetHandle(int index) { return bgHandle[index]; }
+    bool IsHold(); // マップチップを持っているかどうか
+    int GetHoldImage(); // 持ってるマップチップのハンドルを取得する
 };
 

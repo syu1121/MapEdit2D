@@ -115,6 +115,24 @@ void MapChip::Draw()
 		{
 			DrawExtendGraph(mousePos.x, mousePos.y, mousePos.x + IMAGE_SIZE, mousePos.y + IMAGE_SIZE, selectedIndex_, TRUE);
 		}
+		if (Input::IsButtonUp(MOUSE_INPUT_RIGHT))
+		{
+			isHold_ = false;
+
+		}
 	}
 
+}
+
+bool MapChip::IsHold()
+{
+	return isHold_;
+}
+
+int MapChip::GetHoldImage()
+{
+	if (isHold_)
+	{
+
+	}
 }

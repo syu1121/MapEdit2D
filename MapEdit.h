@@ -1,6 +1,8 @@
 #pragma once
 #include "Library\GameObject.h"
 #include <vector>
+#include "globals.h"
+
 
 namespace
 {
@@ -15,13 +17,17 @@ namespace
 class MapEdit :
     public GameObject
 {
-    std::vector<int> myMap_; // マップの配列
-
 public:
     MapEdit();
     ~MapEdit();
+    void SetMap(Point p, int value);
+    int GetMap(Point p) const;
     void Update() override;
     void Draw() override;
-
+    
+private:
+    std::vector<int> myMap_; // マップの配列
+    Rect mapEditRect_;
+    bool isInMapEditArea_;
 };
 
